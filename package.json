@@ -1,0 +1,24 @@
+{
+  "name": "juego_de_memoria",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elpronick/juego_de_memoria.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elpronick/juego_de_memoria/issues"
+  },
+  "homepage": "https://github.com/elpronick/juego_de_memoria#readme",
+  "dependencies": {
+    "sass": "^1.97.3",
+    "vite": "^7.3.1"
+  }
+}

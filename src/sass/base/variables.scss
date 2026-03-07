@@ -1,0 +1,73 @@
+/* =========================
+COLORES
+========================= */
+
+$color-background: #0f172a;
+$color-surface: #1e293b;
+
+$color-primary: #6366f1;
+$color-primary-hover: #4f46e5;
+
+$color-text-main: #f8fafc;
+$color-text-muted: #94a3b8;
+
+$color-card-back: #334155;
+$color-card-front: #f8fafc;
+
+$color-match: #22c55e;
+
+
+/* =========================
+TIPOGRAFÍA
+========================= */
+
+$font-main: "Inter", system-ui, sans-serif;
+
+$font-size-title: 2.2rem;
+$font-size-ui: 1rem;
+$font-size-small: 0.85rem;
+
+
+/* =========================
+ESPACIADO
+========================= */
+
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 40px;
+
+
+/* =========================
+TABLERO
+========================= */
+
+$board-width: 600px;
+$board-gap: 12px;
+
+
+/* =========================
+CARTAS
+========================= */
+
+$card-size: 120px;
+$card-radius: 10px;
+
+$card-shadow: 0 6px 16px rgba(0,0,0,0.25);
+
+
+/* =========================
+TRANSICIONES
+========================= */
+
+$transition-fast: 0.2s ease;
+$transition-normal: 0.35s ease;
+
+
+/* =========================
+Z-INDEX
+========================= */
+
+$z-ui: 10;
+$z-overlay: 100;

@@ -1,0 +1,113 @@
+/* =========================
+IMPORTS
+========================= */
+@import "./base/reset";
+@import "./base/variables";
+
+/* =========================
+GLOBAL
+========================= */
+
+body {
+  background: $color-background;
+  color: $color-text-main;
+  font-family: $font-main;
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: $space-xl;
+}
+
+/* =========================
+TITULO
+========================= */
+
+h1 {
+  font-size: $font-size-title;
+  margin-bottom: $space-lg;
+  text-align: center;
+}
+
+
+/* =========================
+INFO DEL JUEGO
+========================= */
+
+#game-info {
+  display: flex;
+  gap: $space-lg;
+
+  font-size: $font-size-ui;
+
+  margin-bottom: $space-lg;
+}
+
+
+/* =========================
+TABLERO
+========================= */
+
+#board {
+  width: $board-width;
+
+  display: grid;
+
+  /* inicialmente 4 columnas */
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: $board-gap;
+
+  justify-content: center;
+}
+
+
+/* =========================
+CARTAS (estructura base)
+========================= */
+
+.card {
+  width: $card-size;
+  height: $card-size;
+
+  border-radius: $card-radius;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  background: $color-card-back;
+
+  box-shadow: $card-shadow;
+
+  transition: transform $transition-fast,
+              background $transition-normal;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+
+/* =========================
+CARTA VOLTEADA
+========================= */
+
+.card.flipped {
+  background: $color-card-front;
+}
+
+
+/* =========================
+CARTA EMPAREJADA
+========================= */
+
+.card.matched {
+  background: $color-match;
+  transform: scale(1.05);
+}
