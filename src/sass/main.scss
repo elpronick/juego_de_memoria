@@ -1,8 +1,10 @@
 /* =========================
-IMPORTS
+   IMPORTS
 ========================= */
-@import "./base/reset";
-@import "./base/variables";
+
+@use "./base/reset" as *;
+@use "./base/variables" as *;
+
 
 /* =========================
 GLOBAL
@@ -22,6 +24,7 @@ body {
   padding: $space-xl;
 }
 
+
 /* =========================
 TITULO
 ========================= */
@@ -38,12 +41,8 @@ INFO DEL JUEGO
 ========================= */
 
 #game-info {
-  display: flex;
-  gap: $space-lg;
-
-  font-size: $font-size-ui;
-
   margin-bottom: $space-lg;
+  font-size: $font-size-ui;
 }
 
 
@@ -52,41 +51,45 @@ TABLERO
 ========================= */
 
 #board {
-  width: $board-width;
+
+  width: 100%;
+  max-width: 900px;
 
   display: grid;
 
-  /* inicialmente 4 columnas */
-  grid-template-columns: repeat(4, 1fr);
+  /* grid adaptable */
+  grid-template-columns: repeat(auto-fit, minmax($card-size, 1fr));
 
   gap: $board-gap;
 
-  justify-content: center;
+  justify-items: center;
 }
 
 
 /* =========================
-CARTAS (estructura base)
+CARTA
 ========================= */
 
 .card {
+
   width: $card-size;
   height: $card-size;
 
   border-radius: $card-radius;
 
+  background: $color-card-back;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  cursor: pointer;
-
-  background: $color-card-back;
-
   box-shadow: $card-shadow;
 
-  transition: transform $transition-fast,
-              background $transition-normal;
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition: transform $transition-fast;
 }
 
 .card:hover {
@@ -95,19 +98,25 @@ CARTAS (estructura base)
 
 
 /* =========================
-CARTA VOLTEADA
+IMAGEN
+========================= */
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* =========================
+ESTADOS
 ========================= */
 
 .card.flipped {
   background: $color-card-front;
 }
 
-
-/* =========================
-CARTA EMPAREJADA
-========================= */
-
 .card.matched {
-  background: $color-match;
+  outline: 4px solid $color-match;
   transform: scale(1.05);
 }
