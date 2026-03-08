@@ -8,6 +8,8 @@ Más adelante también manejará:
 - movimientos
 - victoria */
 
+import { renderBoard } from "./board.js"
+
 // Estado global del juego
 const gameState = {
   cards: [],
@@ -92,5 +94,6 @@ export function initializeGame() {
   // Reiniciamos el contador de movimientos y las cartas volteadas
   gameState.moves = 0
   gameState.flippedCards = []
-  console.log(gameState.cards)
+  // Renderizamos el tablero vacío al iniciar el juego
+  renderBoard(gameState.cards)
 }
