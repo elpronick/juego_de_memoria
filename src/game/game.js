@@ -9,6 +9,8 @@ Más adelante también manejará:
 - victoria */
 
 import { renderBoard, updateCard, updateMoves, showVictoryScreen, celebrateBoard } from "./board.js"
+import.meta.env.BASE_URL
+const base = import.meta.env.BASE_URL
 
 // Estado global del juego
 const gameState = {
@@ -20,39 +22,39 @@ const gameState = {
 
 // Definimos las cartas únicas que usaremos en el juego
 const baseCards = [
-  { pairId: 1, image: `${import.meta.env.BASE_URL}images/1.jpeg` },
-  { pairId: 2, image: `${import.meta.env.BASE_URL}images/2.jpg` },
-  { pairId: 3, image: `${import.meta.env.BASE_URL}images/3.jpeg` },
-  { pairId: 4, image: `${import.meta.env.BASE_URL}images/4.jpg` },
-  { pairId: 5, image: `${import.meta.env.BASE_URL}images/5.jpg` },
-  { pairId: 6, image: `${import.meta.env.BASE_URL}images/6.jpg` },
-  { pairId: 7, image: `${import.meta.env.BASE_URL}images/7.jpg` },
-  { pairId: 8, image: `${import.meta.env.BASE_URL}images/8.jpg` },
-  { pairId: 9, image: `${import.meta.env.BASE_URL}images/9.jpg` },
-  { pairId: 10, image: `${import.meta.env.BASE_URL}images/10.jpg` },
-  { pairId: 11, image: `${import.meta.env.BASE_URL}images/11.jpg` },
-  { pairId: 12, image: `${import.meta.env.BASE_URL}images/12.jpg` },
-  { pairId: 13, image: `${import.meta.env.BASE_URL}images/13.jpg` },
-  { pairId: 14, image: `${import.meta.env.BASE_URL}images/14.jpg` },
-  { pairId: 15, image: `${import.meta.env.BASE_URL}images/15.jpg` },
-  { pairId: 16, image: `${import.meta.env.BASE_URL}images/16.jpg` },
-  { pairId: 17, image: `${import.meta.env.BASE_URL}images/17.jpg` },
-  { pairId: 18, image: `${import.meta.env.BASE_URL}images/18.jpg` },
-  { pairId: 19, image: `${import.meta.env.BASE_URL}images/19.jpg` },
-  { pairId: 20, image: `${import.meta.env.BASE_URL}images/20.jpg` },
-  { pairId: 21, image: `${import.meta.env.BASE_URL}images/21.jpg` },
-  { pairId: 22, image: `${import.meta.env.BASE_URL}images/22.jpg` },
-  { pairId: 23, image: `${import.meta.env.BASE_URL}images/23.jpg` },
-  { pairId: 24, image: `${import.meta.env.BASE_URL}images/24.jpg` },
-  { pairId: 25, image: `${import.meta.env.BASE_URL}images/25.jpg` },
-  { pairId: 26, image: `${import.meta.env.BASE_URL}images/26.jpg` },
-  { pairId: 27, image: `${import.meta.env.BASE_URL}images/27.jpg` },
-  { pairId: 28, image: `${import.meta.env.BASE_URL}images/28.jpg` },
-  { pairId: 29, image: `${import.meta.env.BASE_URL}images/29.jpg` },
-  { pairId: 30, image: `${import.meta.env.BASE_URL}images/30.jpg` },
-  { pairId: 31, image: `${import.meta.env.BASE_URL}images/31.jpg` },
-  { pairId: 32, image: `${import.meta.env.BASE_URL}images/32.jpg` },
-  { pairId: 33, image: `${import.meta.env.BASE_URL}images/33.jpg` }
+  { pairId: 1, image: `${base}images/1.jpeg` },
+  { pairId: 2, image: `${base}images/2.jpg` },
+  { pairId: 3, image: `${base}images/3.jpeg` },
+  { pairId: 4, image: `${base}images/4.jpg` },
+  { pairId: 5, image: `${base}images/5.jpg` },
+  { pairId: 6, image: `${base}images/6.jpg` },
+  { pairId: 7, image: `${base}images/7.jpg` },
+  { pairId: 8, image: `${base}images/8.jpg` },
+  { pairId: 9, image: `${base}images/9.jpg` },
+  { pairId: 10, image: `${base}images/10.jpg` },
+  { pairId: 11, image: `${base}images/11.jpg` },
+  { pairId: 12, image: `${base}images/12.jpg` },
+  { pairId: 13, image: `${base}images/13.jpg` },
+  { pairId: 14, image: `${base}images/14.jpg` },
+  { pairId: 15, image: `${base}images/15.jpg` },
+  { pairId: 16, image: `${base}images/16.jpg` },
+  { pairId: 17, image: `${base}images/17.jpg` },
+  { pairId: 18, image: `${base}images/18.jpg` },
+  { pairId: 19, image: `${base}images/19.jpg` },
+  { pairId: 20, image: `${base}images/20.jpg` },
+  { pairId: 21, image: `${base}images/21.jpg` },
+  { pairId: 22, image: `${base}images/22.jpg` },
+  { pairId: 23, image: `${base}images/23.jpg` },
+  { pairId: 24, image: `${base}images/24.jpg` },
+  { pairId: 25, image: `${base}images/25.jpg` },
+  { pairId: 26, image: `${base}images/26.jpg` },
+  { pairId: 27, image: `${base}images/27.jpg` },
+  { pairId: 28, image: `${base}images/28.jpg` },
+  { pairId: 29, image: `${base}images/29.jpg` },
+  { pairId: 30, image: `${base}images/30.jpg` },
+  { pairId: 31, image: `${base}images/31.jpg` },
+  { pairId: 32, image: `${base}images/32.jpg` },
+  { pairId: 33, image: `${base}images/33.jpg` }
 ]
 
 // Hacemos una función que genere las cartas del tablero.
