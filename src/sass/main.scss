@@ -72,12 +72,15 @@ CARTA
 
 .card {
 
+  position: relative;
+  
   width: $card-size;
   height: $card-size;
 
   border-radius: $card-radius;
 
   background: $color-card-back;
+  
 
   display: flex;
   justify-content: center;
@@ -96,6 +99,18 @@ CARTA
   transform: scale(1.05);
 }
 
+.card::before {
+  content: "❤️";
+  font-size: 2rem;
+
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* =========================
 IMAGEN
@@ -114,6 +129,10 @@ ESTADOS
 
 .card.flipped {
   background: $color-card-front;
+}
+
+.card.flipped::before {
+  display: none;
 }
 
 .card.matched {

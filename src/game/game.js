@@ -8,7 +8,7 @@ Más adelante también manejará:
 - movimientos
 - victoria */
 
-import { renderBoard } from "./board.js"
+import { renderBoard, updateCard } from "./board.js"
 
 // Estado global del juego
 const gameState = {
@@ -96,4 +96,67 @@ export function initializeGame() {
   gameState.flippedCards = []
   // Renderizamos el tablero vacío al iniciar el juego
   renderBoard(gameState.cards)
+}
+
+// Función para manejar la selección de una carta
+export function handleCardSelection(cardId) {
+  // Aquí podríamos agregar la lógica para voltear la carta, verificar si es un match, etc.
+  const card = gameState.cards.find(c => c.id === cardId)
+
+  // si el tablero está bloqueado, no hacemos nada
+  if (gameState.lockBoard) return null
+
+  // si la carta ya está volteada, ignoramos el click
+  if (card.flipped) return null
+
+  // Volteamos la carta
+  card.flipped = true
+  updateCard(card)
+  gameState.flippedCards.push(card)
+
+  // si hay dos cartas abiertas comprobamos
+  if (gameState.flippedCards.length === 2) {
+    gameState.lockBoard = true
+    gameState.moves++
+    checkForMatch()
+  }
+  return card
+}
+
+// Función para comprobar si las dos cartas volteadas son pareja
+function checkForMatch() {
+  // obtenemos las dos cartas volteadas
+  const [firstCard, secondCard] = gameState.flippedCards
+  if (firstCard.pairId === secondCard.pairId) {
+    handleMatch()
+  } else {
+    handleMismatch()
+  }
+}
+
+// Si las cartas coinciden, las marcamos como emparejadas
+function handleMatch() {
+  gameState.flippedCards.forEach(card => {
+    card.matched = true
+    updateCard(card)
+  })
+  resetTurn()
+}
+
+// Si no coinciden, las volteamos de nuevo después de un breve retraso
+function handleMismatch() {
+  setTimeout(() => {
+    gameState.flippedCards.forEach(card => {
+      card.flipped = false
+      updateCard(card)
+    })
+    resetTurn()
+  }, 1000)
+}
+
+// Reiniciamos el turno después de comprobar las cartas
+function resetTurn() {
+  gameState.flippedCards = []
+  gameState.lockBoard = false
+  // Aquí podríamos agregar lógica para verificar si el juego ha terminado (todas las cartas emparejadas)
 }

@@ -1,3 +1,5 @@
+import { handleCardSelection } from "./game.js"
+
 // Obtenemos el tablero del DOM
 const boardElement = document.getElementById("board")
 
@@ -14,11 +16,65 @@ export function renderBoard(cards) {
 
 // función para crear el elemento HTML de cada carta
 function createCardElement(card) {
-  // cada carta es un div con una imagen dentro
+
   const cardElement = document.createElement("div")
   cardElement.classList.add("card")
-  const img = document.createElement("img")
-  img.src = card.image
-  cardElement.appendChild(img)
+  cardElement.dataset.id = card.id
+
+  // solo mostrar imagen si está flipped
+  if (card.flipped || card.matched) {
+
+    const img = document.createElement("img")
+    img.src = card.image
+    cardElement.appendChild(img)
+  }
+  cardElement.addEventListener("click", handleCardClick)
   return cardElement
+}
+
+// función para manejar el click en una carta
+function handleCardClick(event) {
+  
+  // obtenemos el id de la carta clicada desde el dataset
+  const cardElement = event.currentTarget
+  // aquí podríamos agregar lógica para voltear la carta, verificar si es un match, etc.
+  const cardId = cardElement.dataset.id
+  // llamamos a la función del juego para manejar la selección de la carta
+  const card = handleCardSelection(cardId)
+
+  // si el click no es válido, salimos
+  if (!card) return
+  // actualizar interfaz
+  cardElement.classList.add("flipped")
+}
+
+export function updateCard(card) {
+
+  const cardElement = document.querySelector(`[data-id="${card.id}"]`)
+
+  if (!cardElement) return
+
+  const img = cardElement.querySelector("img")
+
+  if (card.flipped || card.matched) {
+
+    if (!img) {
+      const newImg = document.createElement("img")
+      newImg.src = card.image
+      cardElement.appendChild(newImg)
+    }
+
+    cardElement.classList.add("flipped")
+
+  } else {
+
+    if (img) img.remove()
+
+    cardElement.classList.remove("flipped")
+
+  }
+
+  if (card.matched) {
+    cardElement.classList.add("matched")
+  }
 }
