@@ -24,7 +24,6 @@ const gameState = {
 const baseCards = [
   { pairId: 1, image: `${base}images/1.jpeg` },
   { pairId: 2, image: `${base}images/2.jpg` },
-  { pairId: 3, image: `${base}images/3.jpeg` },
   { pairId: 4, image: `${base}images/4.jpg` },
   { pairId: 5, image: `${base}images/5.jpg` },
   { pairId: 6, image: `${base}images/6.jpg` },
@@ -32,18 +31,15 @@ const baseCards = [
   { pairId: 8, image: `${base}images/8.jpg` },
   { pairId: 9, image: `${base}images/9.jpg` },
   { pairId: 10, image: `${base}images/10.jpg` },
-  { pairId: 11, image: `${base}images/11.jpg` },
   { pairId: 12, image: `${base}images/12.jpg` },
   { pairId: 13, image: `${base}images/13.jpg` },
   { pairId: 14, image: `${base}images/14.jpg` },
-  { pairId: 15, image: `${base}images/15.jpg` },
   { pairId: 16, image: `${base}images/16.jpg` },
   { pairId: 17, image: `${base}images/17.jpg` },
   { pairId: 18, image: `${base}images/18.jpg` },
   { pairId: 19, image: `${base}images/19.jpg` },
   { pairId: 20, image: `${base}images/20.jpg` },
   { pairId: 21, image: `${base}images/21.jpg` },
-  { pairId: 22, image: `${base}images/22.jpg` },
   { pairId: 23, image: `${base}images/23.jpg` },
   { pairId: 24, image: `${base}images/24.jpg` },
   { pairId: 25, image: `${base}images/25.jpg` },
@@ -53,8 +49,7 @@ const baseCards = [
   { pairId: 29, image: `${base}images/29.jpg` },
   { pairId: 30, image: `${base}images/30.jpg` },
   { pairId: 31, image: `${base}images/31.jpg` },
-  { pairId: 32, image: `${base}images/32.jpg` },
-  { pairId: 33, image: `${base}images/33.jpg` }
+  { pairId: 32, image: `${base}images/32.jpg` }
 ]
 
 // Hacemos una función que genere las cartas del tablero.
