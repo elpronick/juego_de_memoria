@@ -19,8 +19,8 @@
     "url": "https://github.com/elpronick/juego_de_memoria/issues"
   },
   "homepage": "https://github.com/elpronick/juego_de_memoria#readme",
-  "dependencies": {
-    "sass": "^1.97.3",
-    "vite": "^7.3.1"
+  "devDependencies": {
+    "vite": "^7.3.1",
+    "sass": "^1.97.3"
   }
 }
