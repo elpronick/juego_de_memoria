@@ -179,3 +179,11 @@ CELEBRATION ANIMATION
 #board.celebrating .card {
   animation: celebrate 0.6s ease-in-out;
 }
+
+@media (max-width: 600px) {
+
+  #board {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
