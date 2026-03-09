@@ -8,7 +8,7 @@ Más adelante también manejará:
 - movimientos
 - victoria */
 
-import { renderBoard, updateCard } from "./board.js"
+import { renderBoard, updateCard, updateMoves, showVictoryScreen, celebrateBoard } from "./board.js"
 
 // Estado global del juego
 const gameState = {
@@ -96,6 +96,8 @@ export function initializeGame() {
   gameState.flippedCards = []
   // Renderizamos el tablero vacío al iniciar el juego
   renderBoard(gameState.cards)
+
+  updateMoves(gameState.moves)
 }
 
 // Función para manejar la selección de una carta
@@ -118,6 +120,7 @@ export function handleCardSelection(cardId) {
   if (gameState.flippedCards.length === 2) {
     gameState.lockBoard = true
     gameState.moves++
+    updateMoves(gameState.moves)
     checkForMatch()
   }
   return card
@@ -141,6 +144,7 @@ function handleMatch() {
     updateCard(card)
   })
   resetTurn()
+  checkVictory()
 }
 
 // Si no coinciden, las volteamos de nuevo después de un breve retraso
@@ -159,4 +163,25 @@ function resetTurn() {
   gameState.flippedCards = []
   gameState.lockBoard = false
   // Aquí podríamos agregar lógica para verificar si el juego ha terminado (todas las cartas emparejadas)
+}
+
+function checkVictory() {
+
+  if (gameState.cards.length === 0) return
+
+  const allMatched = gameState.cards.every(card => card.matched)
+
+  if (allMatched) {
+    handleVictory()
+  }
+
+}
+
+function handleVictory() {
+
+  celebrateBoard()
+
+  setTimeout(() => {
+    showVictoryScreen(gameState.moves)
+  }, 700)
 }

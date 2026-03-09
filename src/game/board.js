@@ -1,4 +1,19 @@
-import { handleCardSelection } from "./game.js"
+import { handleCardSelection, initializeGame } from "./game.js"
+
+const restartBtn = document.getElementById("restart-btn")
+
+if (restartBtn) {
+
+  restartBtn.addEventListener("click", () => {
+
+    document.getElementById("victory-screen").classList.add("hidden")
+
+    initializeGame()
+
+  })
+
+}
+
 
 // Obtenemos el tablero del DOM
 const boardElement = document.getElementById("board")
@@ -77,4 +92,38 @@ export function updateCard(card) {
   if (card.matched) {
     cardElement.classList.add("matched")
   }
+}
+
+export function updateMoves(moves) {
+
+  const movesElement = document.getElementById("moves")
+
+  if (!movesElement) return
+
+  movesElement.textContent = moves
+
+}
+
+export function showVictoryScreen(moves) {
+
+  const screen = document.getElementById("victory-screen")
+  const movesText = document.getElementById("final-moves")
+
+  movesText.textContent = moves
+
+  screen.classList.remove("hidden")
+
+}
+
+export function celebrateBoard() {
+
+  const board = document.getElementById("board")
+
+  if (!board) return
+
+  board.classList.add("celebrating")
+
+  setTimeout(() => {
+    board.classList.remove("celebrating")
+  }, 600)
 }

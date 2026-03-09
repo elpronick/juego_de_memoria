@@ -7,13 +7,18 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>El juego de nuestros recuerdos</h1>
+  <h1>Encuentra los pares de recuerdos</h1>
 
   <div id="game-info">
     <span id="moves">Movimientos: 0</span>
   </div>
 
   <div id="board"></div>
+  <div id="victory-screen" class="hidden">
+    <h2>🎉 ¡Has ganado, Esposa!</h2>
+    <p>Movimientos: <span id="final-moves"></span></p>
+    <button id="restart-btn">Jugar otra vez</button>
+  </div>
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>
