@@ -1,5 +1,5 @@
 /* =========================
-  IMPORTS
+IMPORTS
 ========================= */
 
 @use "./base/reset" as *;
@@ -11,17 +11,16 @@ GLOBAL
 ========================= */
 
 body {
-  background: $color-background;
-  color: $color-text-main;
-  font-family: $font-main;
-
   min-height: 100vh;
+  padding: $space-xl;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  padding: $space-xl;
+  background: $color-background;
+  color: $color-text-main;
+  font-family: $font-main;
 }
 
 
@@ -30,8 +29,9 @@ TITULO
 ========================= */
 
 h1 {
-  font-size: $font-size-title;
   margin-bottom: $space-lg;
+
+  font-size: $font-size-title;
   text-align: center;
 }
 
@@ -42,7 +42,12 @@ INFO DEL JUEGO
 
 #game-info {
   margin-bottom: $space-lg;
+
   font-size: $font-size-ui;
+}
+
+#moves {
+  font-weight: bold;
 }
 
 
@@ -51,17 +56,13 @@ TABLERO
 ========================= */
 
 #board {
-
   width: 100%;
   max-width: 900px;
 
   display: grid;
-
-  /* grid adaptable */
   grid-template-columns: repeat(auto-fit, minmax($card-size, 1fr));
 
   gap: $board-gap;
-
   justify-items: center;
 }
 
@@ -71,28 +72,27 @@ CARTA
 ========================= */
 
 .card {
-
   position: relative;
-  
-  width: $card-size;
-  height: $card-size;
 
-  border-radius: $card-radius;
-
-  background: $color-card-back;
-  
+  width: 100%;
+  max-width: $card-size;
+  aspect-ratio: 1 / 1;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
+  background: $color-card-back;
+  border-radius: $card-radius;
   box-shadow: $card-shadow;
 
   cursor: pointer;
-
   overflow: hidden;
 
   transition: transform $transition-fast;
+
+  /* mejora tap móvil */
+  touch-action: manipulation;
 }
 
 .card:hover {
@@ -104,13 +104,13 @@ CARTA
   font-size: 2rem;
 
   position: absolute;
-
   inset: 0;
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 /* =========================
 IMAGEN
@@ -140,40 +140,36 @@ ESTADOS
   transform: scale(1.05);
 }
 
-#game-info {
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-}
 
-#moves {
-  font-weight: bold;
-}
+/* =========================
+VICTORY SCREEN
+========================= */
 
 #victory-screen {
-
   position: fixed;
-
   inset: 0;
-
-  background: rgba(0,0,0,0.8);
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  background: rgba(0, 0, 0, 0.8);
+
   color: white;
-
   font-size: 2rem;
-
 }
 
 #victory-screen.hidden {
   display: none;
 }
 
-@keyframes celebrate {
 
+/* =========================
+CELEBRATION ANIMATION
+========================= */
+
+@keyframes celebrate {
   0%   { transform: scale(1); }
   30%  { transform: scale(1.2); }
   60%  { transform: scale(0.95); }
