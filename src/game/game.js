@@ -157,7 +157,7 @@ function handleMismatch() {
       updateCard(card)
     })
     resetTurn()
-  }, 1400)
+  }, 1800)
 }
 
 // Reiniciamos el turno después de comprobar las cartas
