@@ -82,6 +82,11 @@ function shuffleDeck(deck) {
 
 // Iniciar el juego
 export function initializeGame() {
+  // Pre-cargamos las imágenes para evitar retrasos al voltear las cartas
+  baseCards.forEach(card => {
+    const img = new Image()
+    img.src = card.image
+  })
   // Creamos el mazo de cartas
   const deck = createDeck()
   // Mezclamos el mazo
@@ -152,7 +157,7 @@ function handleMismatch() {
       updateCard(card)
     })
     resetTurn()
-  }, 1000)
+  }, 1400)
 }
 
 // Reiniciamos el turno después de comprobar las cartas
